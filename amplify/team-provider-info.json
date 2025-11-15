@@ -1,0 +1,15 @@
+{
+  "main": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-nutriback-main-17f67-authRole",
+      "UnauthRoleArn": "arn:aws:iam::665561614127:role/amplify-nutriback-main-17f67-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::665561614127:role/amplify-nutriback-main-17f67-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-nutriback-main-17f67-deployment",
+      "UnauthRoleName": "amplify-nutriback-main-17f67-unauthRole",
+      "StackName": "amplify-nutriback-main-17f67",
+      "StackId": "arn:aws:cloudformation:us-east-1:665561614127:stack/amplify-nutriback-main-17f67/dc5ad350-c1fa-11f0-b37e-12a78ffa1b6d",
+      "AmplifyAppId": "d207qdtweq4i9g"
+    }
+  }
+}
