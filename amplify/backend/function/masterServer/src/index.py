@@ -1,3 +1,4 @@
+from services.after_request import Handler
 from flask_jwt_extended import JWTManager
 from configs import CONFIG as config
 from services.controller import *
@@ -24,8 +25,7 @@ api.add_resource(UserLoginService, '/api/login')
 
 @app.after_request
 def handle_after_request(response: Response) -> Response:
-    # Add any headers or logging here if needed
-    return response
+    return Handler(response).handle_after_request()
 
 
 def handler(event, context) -> dict:

@@ -2,7 +2,7 @@ from datetime import timedelta
 
 
 class MainConfig:
-    URL = 'https://uo5exhg7ej.execute-api.ap-south-1.amazonaws.com/main/api'
+    URL = 'https://dmaoafftud.execute-api.us-east-1.amazonaws.com/main/api'
     
     DB_CONFIG = {
         'connection_url': 'mongodb+srv://rama:7MR9oLpef122UCdy@cluster0.fquqway.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0',
