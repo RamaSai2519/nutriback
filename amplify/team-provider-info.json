@@ -10,6 +10,13 @@
       "StackName": "amplify-nutriback-main-17f67",
       "StackId": "arn:aws:cloudformation:us-east-1:665561614127:stack/amplify-nutriback-main-17f67/dc5ad350-c1fa-11f0-b37e-12a78ffa1b6d",
       "AmplifyAppId": "d207qdtweq4i9g"
+    },
+    "categories": {
+      "function": {
+        "masterServer": {
+          "env": "main"
+        }
+      }
     }
   }
 }

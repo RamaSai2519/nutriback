@@ -1,1 +1,36 @@
-{}
+{
+  "api": {
+    "masterApi": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "masterServer"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    }
+  },
+  "function": {
+    "masterServer": {
+      "build": true,
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_masterServer_env": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "masterServer"
+        }
+      ]
+    }
+  }
+}
