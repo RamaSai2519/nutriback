@@ -9,7 +9,6 @@ from models.generate_meal_plan.main import PlanGenerator
 
 class MealPlanService(Resource):
 
-    @jwt_required()
     def post(self) -> dict:
         input = json.loads(request.get_data())
         input = GeneratePlanInput(**input)

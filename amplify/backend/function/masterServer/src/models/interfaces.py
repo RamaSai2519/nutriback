@@ -53,6 +53,11 @@ class UpsertPreferencesInput:
     ingredients_to_exclude: Optional[list[str]] = None
 
 
+@dataclass
+class GetPreferencesInput:
+    user_id: str
+
+
 class MealType(str, Enum):
     snack = 'snack'
     lunch = 'lunch'
@@ -98,6 +103,7 @@ class MealProposal(BaseModel):
 class MealPlan(BaseModel):
     days: int
     meals: dict[str, list[MealProposal]]
+    
 
 
 @dataclass
