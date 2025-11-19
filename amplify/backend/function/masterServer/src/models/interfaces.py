@@ -24,6 +24,11 @@ class LoginInput:
 
 
 @dataclass
+class GeneratePlanInput:
+    user_id: str
+
+
+@dataclass
 class MealPreferences:
     days: Optional[int] = None
     goal: Optional[str] = None

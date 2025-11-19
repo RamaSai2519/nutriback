@@ -2,10 +2,10 @@ import traceback
 from models.constants import OutputStatus
 from models.generate_meal_plan.compute import Compute
 from models.generate_meal_plan.validate import Validator
-from models.interfaces import MealPreferences as Input, Output
+from models.interfaces import GeneratePlanInput as Input, Output
 
 
-class RecipesGenerator:
+class PlanGenerator:
     def __init__(self, input: Input) -> None:
         self.input = input
 

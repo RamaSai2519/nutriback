@@ -1,5 +1,5 @@
-from models.interfaces import MealPreferences as Input
-from dataclasses import fields
+from models.interfaces import GeneratePlanInput as Input
+from bson import ObjectId
 
 
 class Validator:
@@ -7,9 +7,7 @@ class Validator:
         self.input = input
 
     def validate(self) -> tuple:
-        input_fields = [f.name for f in fields(Input)]
-        for field in input_fields:
-            if not hasattr(self.input, field):
-                return False, f"Missing value: {field}"
+        if not ObjectId.is_valid(self.input.user_id):
+            return False, "Invalid user ID"
 
         return True, ""

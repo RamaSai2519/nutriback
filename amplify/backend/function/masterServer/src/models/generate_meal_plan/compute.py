@@ -1,6 +1,7 @@
 from models.interfaces import MealPreferences as Input, Output, MealPlan
 from helpers.openai import LLM_Client
 from models.common import Common
+from bson import ObjectId
 import json
 
 
@@ -8,6 +9,9 @@ class Compute:
     def __init__(self, input: Input) -> None:
         self.input = input
         self.llm_client = LLM_Client().client
+        self.user_id = ObjectId(self.input.user_id)
+
+    
 
     def build_chat(self) -> list:
         chat_messages = [

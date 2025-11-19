@@ -35,11 +35,10 @@ class Compute:
         return list(ingredient_map.values())
 
     def _upsert_preferences(self) -> dict:
-        if not self.input.preferences:
-            return None
+        if not self.input.preferences or not Common.filter_none_values(asdict(self.input.preferences)):
+            return self.prefs_collection.find_one({'user_id': self.user_id})
 
         prefs_data = asdict(self.input.preferences)
-        prefs_data['user_id'] = self.user_id
         self.prefs_collection.update_one(
             {'user_id': self.user_id},
             {'$set': prefs_data},
@@ -48,11 +47,11 @@ class Compute:
         return prefs_data
 
     def _upsert_groceries(self) -> dict:
-        if not self.input.ingredients and not self.input.ingredients_to_exclude:
-            return None
-
         existing_groceries = self.groceries_collection.find_one(
             {'user_id': self.user_id})
+
+        if not self.input.ingredients and not self.input.ingredients_to_exclude:
+            return existing_groceries
 
         if existing_groceries:
             ingredients = self._merge_ingredients(
