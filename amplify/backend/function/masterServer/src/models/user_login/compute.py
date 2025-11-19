@@ -1,4 +1,3 @@
-from typing import Union
 from models.common import Common
 from passlib.hash import pbkdf2_sha256
 from db.users import get_user_collection
@@ -21,7 +20,7 @@ class Compute:
             query['email'] = self.input.email
         return query
 
-    def validate_user(self) -> Union[dict, None]:
+    def validate_user(self) -> dict | None:
         user = self.users_collection.find_one(self.query)
         return user if user else None
 

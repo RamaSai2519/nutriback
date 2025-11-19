@@ -15,6 +15,5 @@ class MealPlanService(Resource):
         input = Input(**input)
         output = RecipesGenerator(input).process()
         output = dataclasses.asdict(output)
-        print("MealPlanService Output:", output)
 
         return output

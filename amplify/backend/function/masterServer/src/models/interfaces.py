@@ -48,12 +48,6 @@ class UpsertPreferencesInput:
     ingredients_to_exclude: Optional[list[str]] = None
 
 
-@dataclass
-class DeleteGroceryInput:
-    user_id: str
-    ingredient_name: str
-
-
 class MealType(str, Enum):
     snack = 'snack'
     lunch = 'lunch'
