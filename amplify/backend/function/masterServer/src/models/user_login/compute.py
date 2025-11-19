@@ -49,6 +49,6 @@ class Compute:
         }
 
         return Output(
-            msg="Login successful",
-            data=Common.jsonify(user_data)
+            data=user_data,
+            msg="Login successful"
         )

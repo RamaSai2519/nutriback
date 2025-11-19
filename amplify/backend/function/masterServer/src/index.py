@@ -21,6 +21,8 @@ CORS(app, supports_credentials=True)
 
 api.add_resource(UserService, '/api/user')
 api.add_resource(UserLoginService, '/api/login')
+api.add_resource(MealPlanService, '/api/meal_plan')
+api.add_resource(UpsertPreferencesService, '/api/preferences')
 
 
 @app.after_request
