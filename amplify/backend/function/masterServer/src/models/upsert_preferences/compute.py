@@ -60,22 +60,19 @@ class Compute:
                 self.input.ingredients
             ) if self.input.ingredients else existing_groceries.get('ingredients', [])
 
-            exclusions = list(set(existing_groceries.get('ingredients_to_exclude', [])) | set(
-                self.input.ingredients_to_exclude)) if self.input.ingredients_to_exclude else existing_groceries.get('ingredients_to_exclude', [])
         else:
             ingredients = [
                 {**asdict(ing), 'name': ing.name.lower()}
                 for ing in self.input.ingredients
             ] if self.input.ingredients else []
-            exclusions = list(
-                self.input.ingredients_to_exclude) if self.input.ingredients_to_exclude else []
 
+        update = {'ingredients': ingredients}
+        exclusions = self.input.ingredients_to_exclude
+        if self.input.ingredients_to_exclude is not None:
+            update['ingredients_to_exclude'] = [i.lower() for i in exclusions]
         self.groceries_collection.update_one(
             {'user_id': self.user_id},
-            {'$set': {
-                'ingredients': ingredients,
-                'ingredients_to_exclude': exclusions
-            }},
+            {'$set': update},
             upsert=True
         )
         return self.groceries_collection.find_one({'user_id': self.user_id})
